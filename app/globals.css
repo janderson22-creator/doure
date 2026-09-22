@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  /* Manteiga: fundos claros */
+  --color-butter-50: #fffbea;
+  --color-butter-100: #fff3c1;
+  --color-butter-200: #fce38a;
+  /* Ouro do ghee: destaques e seleção */
+  --color-gold-300: #f9d56e;
+  --color-gold-400: #f2b632;
+  --color-gold-500: #e0a012;
+  --color-gold-800: #7a5200;
+  /* Verde-mata: texto, botões */
+  --color-forest-950: #0f2016;
+  --color-forest-900: #14291c;
+  --color-forest-700: #24452f;
+  --color-forest-600: #2f5a3d;
+  /* Chimichurri */
+  --color-herb-500: #5c8a3a;
+  --color-herb-100: #e4f0d6;
+  /* Texto secundário */
+  --color-muted: #5b6a5d;
+  --color-line: #ecdfa8;
+
+  --font-display: "Bricolage Grotesque Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Instrument Sans Variable", ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 1rem;
+}
+
+body {
+  background: var(--color-butter-50);
+  color: var(--color-forest-900);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Foco visível para navegação por teclado */
+:focus-visible {
+  outline: 3px solid var(--color-forest-700);
+  outline-offset: 2px;
+}
+
+/* Remove setinhas do input numérico */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Uma única animação de entrada: as gotas do hero */
+@keyframes drop-in {
+  from {
+    opacity: 0;
+    transform: translateY(-14px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.hero-jar {
+  animation: drop-in 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.hero-jar-late {
+  animation-delay: 0.14s;
+}
